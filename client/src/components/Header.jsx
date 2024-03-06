@@ -1,16 +1,15 @@
-import React, { useEffect, useState } from "react";
+import React, { useState, useEffect, useContext } from "react";
 import { Link } from "react-router-dom";
+import { UserContext } from "../context/UserContext";
 
 const Header = () => {
-  const [username, setUsername] = useState(null);
+  const {setUserInfo, userInfo} = useContext(UserContext);
 
   const fetchData = async () => {
-    const response = await fetch("http://localhost:3000/profile", {
+    await fetch("http://localhost:3000/profile", {
       credentials: "include",
     });
-
-    const userInfo = await response.json();
-    setUsername(userInfo.username);
+    setUserInfo(userInfo);
   };
 
   useEffect(() => {
@@ -22,8 +21,10 @@ const Header = () => {
       credentials: "include",
       method: "POST",
     });
-    setUsername(null)
+    setUserInfo(null);
   };
+
+  const username = userInfo?.username;
 
   return (
     <header>
@@ -32,7 +33,7 @@ const Header = () => {
       </Link>
       <nav>
         {username && (
-          <>
+          <> 
             <Link to="/create">Create new post</Link>
             <a onClick={handleLogout}>Logout</a>
           </>
