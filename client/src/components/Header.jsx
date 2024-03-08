@@ -33,7 +33,7 @@ const Header = () => {
       <nav>
         {username && (
           <> 
-          <span>logged in as {username}</span>
+          <span style={{borderRight:"1px solid black", padding:"0 10px"}}>User: {username}</span>
             <Link to="/create">Create new post</Link>
             <a onClick={handleLogout}>Logout</a>
           </>
