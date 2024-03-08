@@ -5,7 +5,7 @@ const IndexPage = () => {
   const [posts, setPost] = useState([])
 
   useEffect(() => {
-    fetch("http://localhost:3000/post")
+    fetch("https://mern-jwt-blog-website.onrender.com/post")
     .then((response) => {
       response.json().then((posts) => {
         setPost(posts)

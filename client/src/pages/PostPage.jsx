@@ -9,7 +9,7 @@ const PostPage = () => {
   const {id} = useParams();
 
   useEffect(() => {
-    fetch(`http://localhost:3000/post/${id}`)
+    fetch(`https://mern-jwt-blog-website.onrender.com/post/${id}`)
     .then((response) => {
       response.json().then((postInfo) => {
         setPostInfo(postInfo);
@@ -41,7 +41,7 @@ const PostPage = () => {
                 </div>
             )} 
             <div className="image">
-                <img src={`http://localhost:3000/${postInfo.cover}`} alt="" />
+                <img src={`https://mern-jwt-blog-website.onrender.com/${postInfo.cover}`} alt="" />
             </div>
             <div className="content" dangerouslySetInnerHTML={{__html:postInfo.content}} />
         </div>

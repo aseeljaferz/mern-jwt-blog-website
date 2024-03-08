@@ -4,22 +4,6 @@ import React, { useState } from "react";
 import { Navigate } from "react-router-dom";
 import Editor from "../components/Editor";
 
-// const formats = [
-//   "header",
-//   "bold",
-//   "italic",
-//   "underline",
-//   "strike",
-//   "blockquote",
-//   "list",
-//   "bullet",
-//   "link",
-//   "indent",
-//   "image",
-//   "code-block",
-//   "color",
-// ];
-
 const CreatePost = () => {
   const [title, setTitle] = useState("");
   const [summary, setSummary] = useState("");
@@ -36,7 +20,7 @@ const CreatePost = () => {
 
     e.preventDefault();
 
-    const response = await fetch("http://localhost:3000/post", {
+    const response = await fetch("https://mern-jwt-blog-website.onrender.com/post", {
       method: "POST",
       body: data,
       credentials: "include",
