@@ -4,9 +4,9 @@ import { UserContext } from '../context/UserContext';
 
 const LoginPage = () => {
   const [username, setUsername] = useState('')
-  const [password, setPassword] = useState("");
+  const [password, setPassword] = useState('');
   const [redirect, setRedirect] = useState(false);
-  const {setUserInfo, userInfo} = useContext(UserContext);
+  const {setUserInfo} = useContext(UserContext);
 
   const handleLogin = async (e) => {
     e.preventDefault();

@@ -1,21 +1,28 @@
-import React from 'react'
+import React from "react";
+import { format } from "date-fns";
+import { Link } from "react-router-dom";
 
-const Post = () => {
+const Post = ({ _id, title, summary, cover, createdAt, author }) => {
   return (
     <div className="post">
-        <div className="image">
-          <img src="https://techcrunch.com/wp-content/uploads/2024/03/Apple-MacBook-Air-2-up-hero-240304_big.jpg.large_.jpg?w=1390&crop=1" alt="" />
-        </div>
-        <div className="texts ">
-          <h2>Apple announces new 13-inch and 15-inch MacBook Air models with M3 chip</h2>
-          <p className="info">
-            <a className="author">Aseel Jafer Z</a>
-            <time> 2024-03-06 10:23</time>
-          </p>
-          <p className='summary'>Apple announced new MacBook Air models with 13-inch and 15-inch screen sizes with its own M3 chip. </p>
-        </div>
+      <div className="image">
+        <Link to={`/post/${_id}`}>
+          <img
+            src={'http://localhost:3000/'+cover}
+            alt={title}
+          />
+        </Link>
       </div>
-  )
-}
+      <div className="texts ">
+        <h2>{title}</h2>
+        <p className="info">
+          <a className="author">{author.username}</a>
+          <time>{format(new Date(createdAt), "MMM d-yyyy HH:mm")}</time>
+        </p>
+        <p className="summary">{summary}</p>
+      </div>
+    </div>
+  );
+};
 
-export default Post
+export default Post;

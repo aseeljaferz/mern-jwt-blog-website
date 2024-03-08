@@ -5,15 +5,14 @@ import { UserContext } from "../context/UserContext";
 const Header = () => {
   const {setUserInfo, userInfo} = useContext(UserContext);
 
-  const fetchData = async () => {
-    await fetch("http://localhost:3000/profile", {
-      credentials: "include",
-    });
-    setUserInfo(userInfo);
-  };
-
   useEffect(() => {
-    fetchData();
+    fetch('http://localhost:3000/profile', {
+      credentials: 'include',
+    }).then(response => {
+      response.json().then(userInfo => {
+        setUserInfo(userInfo);
+      });
+    });
   }, []);
 
   const handleLogout = () => {
@@ -34,6 +33,7 @@ const Header = () => {
       <nav>
         {username && (
           <> 
+          <span>logged in as {username}</span>
             <Link to="/create">Create new post</Link>
             <a onClick={handleLogout}>Logout</a>
           </>
