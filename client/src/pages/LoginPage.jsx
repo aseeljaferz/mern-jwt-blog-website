@@ -16,7 +16,7 @@ const LoginPage = () => {
       headers: {'Content-Type': 'application/json'},
       credentials: 'include',  //if we have any cookie it will be considered as credentials and it will be includeted to the browser in included in the next request
     });
-    if (response.ok) {
+    if (response.status === 200) {
       response.json().then(userInfo => {
         setUserInfo(userInfo);
         setRedirect(true);
