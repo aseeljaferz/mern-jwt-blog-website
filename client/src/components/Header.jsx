@@ -6,7 +6,7 @@ const Header = () => {
   const {setUserInfo, userInfo} = useContext(UserContext);
 
   useEffect(() => {
-    fetch('https://mern-jwt-blog-website.onrender.com/profile', {
+    fetch('http://localhost:3000/profile', {
       credentials: 'include',
     }).then(response => {
       response.json().then(userInfo => {
@@ -16,7 +16,7 @@ const Header = () => {
   }, []);
 
   const handleLogout = () => {
-    fetch("https://mern-jwt-blog-website.onrender.com/logout", {
+    fetch("http://localhost:3000/logout", {
       credentials: "include",
       method: "POST",
     });

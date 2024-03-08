@@ -8,7 +8,7 @@ const Post = ({ _id, title, summary, cover, createdAt, author }) => {
       <div className="image">
         <Link to={`/post/${_id}`}>
           <img
-            src={'https://mern-jwt-blog-website.onrender.com/'+cover}
+            src={'http://localhost:3000/'+cover}
             alt={title}
           />
         </Link>

@@ -8,7 +8,7 @@ const RegisterPage = () => {
 
   const handleRegister = async (e) => {
     e.preventDefault();
-    const response = await fetch("https://mern-jwt-blog-website.onrender.com/register ", {
+    const response = await fetch("http://localhost:3000/register ", {
       method: "POST",
       body: JSON.stringify({ username, password }),
       headers: { "Content-Type": "application/json" },

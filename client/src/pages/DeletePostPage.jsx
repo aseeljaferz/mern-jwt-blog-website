@@ -7,7 +7,7 @@ const DeletePostPage = () => {
   const [postInfo, setPostInfo] = useState(null);
 
   useEffect(() => {
-    fetch(`https://mern-jwt-blog-website.onrender.com/post/${id}`)
+    fetch(`http://localhost:3000/post/${id}`)
       .then((response) => {
         if (!response.ok) {
           throw new Error("Failed to fetch post");
@@ -24,7 +24,7 @@ const DeletePostPage = () => {
 
   const handleDelete = async (e) => {
     e.preventDefault();
-    const response = await fetch(`https://mern-jwt-blog-website.onrender.com/post/${id}`, {
+    const response = await fetch(`http://localhost:3000/post/${id}`, {
       method: 'DELETE',
       credentials: 'include',
     });
