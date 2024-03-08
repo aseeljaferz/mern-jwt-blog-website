@@ -19,7 +19,7 @@ app.use(express.json());
 app.use(cookieParser());
 app.use("/uploads", express.static(__dirname + "/uploads"));
 
-mongoose.connect("mongodb://localhost:27017");
+mongoose.connect("mongodb+srv://aseeljafer:aseeljafer@login.lo8hdxs.mongodb.net/test");
 
 //endpint for register
 app.post("/register", async (req, res) => {
