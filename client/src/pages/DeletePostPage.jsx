@@ -7,7 +7,7 @@ const DeletePostPage = () => {
   const [postInfo, setPostInfo] = useState(null);
 
   useEffect(() => {
-    fetch(`http://localhost:3000/post/${id}`)
+    fetch(`https://mern-jwt-blog-website.onrender.com/post/${id}`)
       .then((response) => {
         if (!response.ok) {
           throw new Error("Failed to fetch post");
